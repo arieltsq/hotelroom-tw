@@ -7,13 +7,13 @@ class Booking {
     return this._arrayofHotels
   }
 
-  Cheapest_for_all_dates(customer, dates){
-    for (date : dates){
-      Cheapest(customer, date)
+  Cheapest_for_all_dates (customer, dates) {
+    for (var i = 0; i < dates.length; i++) {
+    return this.Cheapest(customer, dates[i])
     }
-  
-}
- Cheapest (customer, date) {
+  }
+
+  Cheapest (customer, date) {
     var dayOfWeek = date.getDay()
     if (customer.type === 'Rewards') {
       if (dayOfWeek < 6) {

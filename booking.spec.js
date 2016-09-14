@@ -18,19 +18,29 @@ describe('cheapest_for', function () {
   describe('when the customer is rewards customer', function () {
     var rewardCustomer = new Customer('Rewards')
 
-    describe('when the customer is booking on a Weekday', function () {
+    describe('when the reward customer is booking on a Weekday', function () {
       it('checks for cheapest hotel available', function () {
         var weekdayDate = new Date(2016, 2, 16)
         expect(newBooking.Cheapest(rewardCustomer, weekdayDate)).toEqual(Bridgewood)
       })
     })
 
-    describe('when the customer is booking on a Weekend', function () {
+    describe('when the reward ustomer is booking on a Weekend', function () {
       it('checks for cheapest hotel available', function () {
         var weekendDate = new Date(2009, 2, 21)
         expect(newBooking.Cheapest(rewardCustomer, weekendDate)).toEqual(Ridgewood)
       })
     })
+
+    describe('when the reward customer is booking on a Weekend', function () {
+      it('checks for cheapest hotel available', function () {
+        var weekendDate = new Date(2009, 2, 14)
+        var weekend2Date = new Date(2009, 2, 21)
+        var weekend3Date = new Date(2009, 2, 28)
+        expect(newBooking.Cheapest_for_all_dates(rewardCustomer, [weekendDate, weekend2Date, weekend3Date])).toEqual(Ridgewood)
+      })
+    })
+
   })
 
   describe('when the customer is regular customer', function () {
@@ -49,4 +59,5 @@ describe('cheapest_for', function () {
       })
     })
   })
+
 })
